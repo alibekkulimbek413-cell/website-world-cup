@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; background-color: #0d1b2a; color: white; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        
+        
+        section { min-height: 80vh; padding: 100px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+       
+        .hero-title {
+            background: linear-gradient(to right, #ffffff, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        
+        #profileModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #home {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+   
+        background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.7)), 
+                url('https://pressball.by/wp-content/uploads/entities/stories/2025/10/8940417594492941083586251.jpg'); 
+    
+        background-size: cover;     
+        background-position: center; 
+        background-attachment: fixed; 
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.scroll-anim {
+    view-timeline-name: --section-reveal;
+    view-timeline-axis: block;
+    animation-name: fadeInUp;
+    animation-fill-mode: both;
+    animation-timeline: --section-reveal;
+    animation-range: entry 10% cover 30%;
+}
+
+
+.match-card, .city-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease, 
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.match-card:hover, .city-card:hover {
+    transform: scale(1.05); 
+    z-index: 10; 
+    background-color: rgba(6, 182, 212, 0.1); 
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+
+.city-card:hover {
+    color: #22d3ee; 
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2a]/90 backdrop-blur-md border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold font-oswald tracking-tighter text-white">
+                WORLD<span class="text-cyan-500">CUP</span>26
+            </div>
+            
+            <ul class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+                <li><a href="#home" class="hover:text-cyan-400 transition">Главная</a></li>
+                <li><a href="#matches" class="hover:text-cyan-400 transition">Матчи</a></li>
+                <li><a href="#cities" class="hover:text-cyan-400 transition">Города</a></li>
+                <li><a href="#tickets" class="hover:text-cyan-400 transition">Билеты</a></li>
+            </ul>
+
+            <div class="flex items-center gap-5">
+                <button onclick="toggleProfile(true)" class="text-2xl hover:text-cyan-400 transition">
+                    <i class="ri-user-3-line"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+    <div class="container mx-auto px-6 relative z-10">
+        <h1 class="hero-title text-6xl md:text-8xl font-black font-oswald mb-6">WORLD CUP 2026</h1>
+        <p class="text-cyan-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            Добро пожаловать на величайший турнир в истории. США, Канада и Мексика готовятся принять мир.
+        </p>
+        <div class="flex gap-4 justify-center">
+            <a href="#matches" class="px-8 py-3 bg-cyan-500 hover:bg-cyan-400 text-white rounded-full font-bold transition transform hover:scale-105 shadow-lg">Смотреть матчи</a>
+            <a href="#cities" class="px-8 py-3 border border-white/20 hover:bg-white/10 rounded-full font-bold transition">Изучить города</a>
+        </div>
+    </div>
+</section>
+
+   
+       <section id="matches" class="bg-[#1b263b] overflow-hidden">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold font-oswald text-center mb-12 uppercase italic scroll-anim">Расписание матчи</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-[#0d1b2a] p-6 rounded-2xl flex items-center justify-between border border-white/5 scroll-anim match-card cursor-pointer">
+                <span class="font-bold">Мексика</span>
+                <span class="text-cyan-500 font-bold">VS</span>
+                <span class="font-bold">ЮАР</span>
+            </div>
+            <div class="bg-[#0d1b2a] p-6 rounded-2xl flex items-center justify-between border border-white/5 scroll-anim match-card cursor-pointer">
+                <span class="font-bold">Канада</span>
+                <span class="text-cyan-500 font-bold">VS</span>
+                <span class="font-bold">Катар</span>
+            </div>
+            <div class="bg-[#0d1b2a] p-6 rounded-2xl flex items-center justify-between border border-white/5 scroll-anim match-card cursor-pointer">
+                <span class="font-bold">США</span>
+                <span class="text-cyan-500 font-bold">VS</span>
+                <span class="font-bold">Парагвай</span>
+            </div>
+            <div class="bg-[#0d1b2a] p-6 rounded-2xl flex items-center justify-between border border-white/5 scroll-anim match-card cursor-pointer">
+                <span class="font-bold">Бразилия</span>
+                <span class="text-cyan-500 font-bold">VS</span>
+                <span class="font-bold">Марокко</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cities" class="overflow-hidden">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold font-oswald text-center mb-12 uppercase italic scroll-anim">Города-хозяева</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Нью-Йорк</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Мехико</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Торонто</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Лос-Анджелес</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Майами</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Гвадалахара</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Ванкувер</div>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/10 scroll-anim city-card cursor-help">Даллас</div>
+        </div>
+    </div>
+</section>
+
+    <section id="tickets" class="bg-cyan-600 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl font-bold font-oswald mb-6 uppercase">Билеты в продаже скоро!</h2>
+            <p class="mb-8 text-xl">Оставьте свой Email, чтобы получить уведомление первым.</p>
+            <form class="max-w-md mx-auto flex gap-2">
+                <input type="email" placeholder="Email" class="flex-1 p-3 rounded-lg text-black outline-none">
+                <button class="bg-black px-6 py-3 rounded-lg font-bold hover:bg-gray-800 transition">Жду</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="profileModal" onclick="closeModal(event)">
+        <div class="bg-white text-black p-8 rounded-3xl w-full max-w-sm relative" onclick="event.stopPropagation()">
+            <h2 class="text-3xl font-bold font-oswald mb-6 text-center italic">ВХОД В ПРОФИЛЬ</h2>
+            <div class="flex flex-col gap-4">
+                <input type="text" placeholder="Логин" class="w-full p-3 bg-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500">
+                <input type="password" placeholder="Пароль" class="w-full p-3 bg-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500">
+                <button class="w-full py-3 bg-cyan-600 text-white rounded-xl font-bold hover:bg-cyan-700 transition">Войти</button>
+            </div>
+            <button onclick="toggleProfile(false)" class="mt-4 w-full text-sm text-gray-500 hover:underline">Закрыть</button>
+        </div>
+    </div>
+
+    <footer class="py-10 text-center text-gray-500 border-t border-white/5">
+        <p>&copy; 2026 FIFA World Cup Website. Три страны — Одна мечта.</p>
+    </footer>
+
+   
+</body>
+</html>
